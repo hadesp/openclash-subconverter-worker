@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hadesp-subconverter",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-05",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "observability": {"enabled": false},
+  "ratelimits": [{"name":"CONVERT_RATE","namespace_id":"2026110501","simple":{"limit":20,"period":60}}],
+  "vars": {"RELEASE": "0.1.0-unaccepted"}
+}

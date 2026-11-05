@@ -1,0 +1,1106 @@
+[
+  {
+    "domain": "webofscience.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "webofknowledge.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "wokinfo.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "researcherid.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "clarivate.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "publons.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "endnote.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "getft.io",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "d3gs88v2si9epo.cloudfront.net",
+    "type": "DOMAIN"
+  },
+  {
+    "domain": "dlt9ksh5o30zl.cloudfront.net",
+    "type": "DOMAIN"
+  },
+  {
+    "domain": "elsevier.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "elsevier.io",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "elsevierstatic.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sciencedirect.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sciencedirectassets.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "els-cdn.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "scopus.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "scival.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "mendeley.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "engineeringvillage.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "reaxys.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "embase.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "clinicalkey.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "knovel.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ssrn.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "cell.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "cellpress.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "thelancet.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "keai.net",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "keaipublishing.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "nature.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "natureportfolio.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "natureasia.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "natureindex.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "springernature.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "springer.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "springerlink.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "springeropen.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "springermaterials.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "palgrave.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "biomedcentral.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "bmc.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "scientificamerican.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "beilstein-journals.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "chemistryviews.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "acs.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "silverchair-cdn.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "silverchair.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "cas.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "stn.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "rsc.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "chemistryworld.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "wiley.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "wiley-vch.de",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "wileyplus.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "chemrxiv.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "scienceopen.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "science.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sciencemag.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "aaas.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "pnas.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "nasonline.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "royalsocietypublishing.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "royalsociety.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "annualreviews.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "elifesciences.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "plos.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "plosone.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "f1000research.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "tandfonline.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "taylorfrancis.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "routledge.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "crcpress.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "dovepress.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "peerj.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "informa.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "oup.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "oxfordacademic.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "oxfordjournals.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "cambridge.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "cambridgecore.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sagepub.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sagepub.co.uk",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "degruyter.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "degruyterbrill.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sciendo.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "brill.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "worldscientific.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "emerald.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "emeraldinsight.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ingentaconnect.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "projecteuclid.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "muse.jhu.edu",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "jstor.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "mitpressjournals.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ucpress.edu",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "dukeupress.edu",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "scholarlypublishingcollective.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "physiology.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "aacrjournals.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "microbiologyresearch.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "mdpi.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "frontiersin.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "hindawi.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "benthamscience.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "scirp.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "scientific.net",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "trans-tech-publications.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "edpsciences.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "edp-open.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "openedition.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "erudit.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "cairn.info",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "persée.fr",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "persee.fr",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "begellhouse.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "bioone.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "allenpress.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "portlandpress.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ieee.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "computer.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "acm.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "siam.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ams.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "maa.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "scitepress.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "usenix.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "neurips.cc",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "openreview.net",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "proceedings.mlr.press",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "jmlr.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "aaai.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "aps.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "aip.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "scitation.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "iop.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "optica.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "osapublishing.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "spie.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "spiedigitallibrary.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "osa.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ecsdl.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "electrochem.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "mrs.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "tms.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ceramics.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "aiche.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "asme.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ascelibrary.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "asce.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sae.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "astm.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "iso.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "iet.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "thiet.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "aappublications.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "psychiatryonline.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "psychnet.apa.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "nejm.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "jamanetwork.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "bmj.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "cochranelibrary.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "cochrane.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "nih.gov",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "europepmc.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "clinicaltrials.gov",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ovid.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ovidsp.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "lww.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "wolterskluwer.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "medknow.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "karger.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "thieme.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "thieme-connect.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "liebertpub.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "asm.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "asbmb.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "genetics.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "jove.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "biorxiv.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "medrxiv.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "agu.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "egu.eu",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "egusphere.net",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "copernicus.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "geoscienceworld.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "onepetro.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "seg.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ametsoc.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "agronomy.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "soils.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "crops.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "asabe.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "doi.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "crossref.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "datacite.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "orcid.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "dimensions.ai",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "lens.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "semanticscholar.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "openalex.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "unpaywall.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "altmetric.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "scite.ai",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "connectedpapers.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "literature-graph.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "researchgate.net",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "academia.edu",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "zotero.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "readcube.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "papersapp.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "paperpile.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "proquest.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ebsco.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ebscohost.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "gale.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "osti.gov",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "inspirehep.net",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "manuscriptcentral.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "scholarone.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "editorialmanager.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "edmgr.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ejmanager.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "reviewmanager.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "confex.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "exordo.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "openconf.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sciforum.net",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "arxiv.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "osf.io",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "researchsquare.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "zenodo.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "figshare.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "dryad.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "dataverse.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "datadryad.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "protocols.io",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "gigadb.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "wipo.int",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "epo.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "uspto.gov",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "espacenet.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "worldbank.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "oecd.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "unesco.org",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "jstage.jst.go.jp",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "cnki.net",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "wanfangdata.com.cn",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "cqvip.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "duxiu.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "chaoxing.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "superlib.net",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "zhangqiaokeyan.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "nssd.cn",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "carsi.edu.cn",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sciengine.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sciopen.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sciencechina.cn",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sciencepress.cn",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "sciencechina-press.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "cas.cn",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "nsfc.gov.cn",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "most.gov.cn",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "airitilibrary.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "airiti.com",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "edu.cn",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ac.cn",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "edu",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ac.uk",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "edu.au",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ac.jp",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ac.kr",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ac.nz",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ac.in",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "edu.sg",
+    "type": "DOMAIN-SUFFIX"
+  },
+  {
+    "domain": "ac.il",
+    "type": "DOMAIN-SUFFIX"
+  }
+]

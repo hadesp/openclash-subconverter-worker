@@ -1,0 +1,579 @@
+{
+  "target": "Mihomo Meta v1.19.33 windows amd64 with go1.26.10 Wed Oct 21 16:44:15 UTC 2026\nUse tags: with_gvisor",
+  "fullConfigValid": true,
+  "fullExit": 0,
+  "groups": 64,
+  "rules": 64,
+  "available": {
+    "🚀 手动选择": true,
+    "♻️ 自动选择": true,
+    "📨 Telegram": true,
+    "🎧 Discord": true,
+    "📞 Talkatone": true,
+    "📹 Zoom": true,
+    "💬 即时通讯": true,
+    "🌐 社交媒体": true,
+    "🚀 GitHub": true,
+    "📦 容器服务": true,
+    "💻 开发者服务": true,
+    "📚 学术资源": true,
+    "🤖 ChatGPT": true,
+    "🤖 Copilot": true,
+    "🤖 Claude": true,
+    "🤖 Gemini": true,
+    "🤖 Grok": true,
+    "🤖 国外AI服务": true,
+    "🤖 国内AI服务": true,
+    "🎶 TikTok": true,
+    "📹 YouTube": true,
+    "🎥 Netflix": true,
+    "🎥 DisneyPlus": true,
+    "🎥 HBO": true,
+    "🎥 PrimeVideo": true,
+    "🎥 AppleTV+": true,
+    "🎥 Emby": true,
+    "🎻 Spotify": true,
+    "📺 Bahamut": true,
+    "🌎 国外媒体": true,
+    "📰 新闻资讯": true,
+    "🛒 国外电商": true,
+    "🪙 加密货币": true,
+    "📢 谷歌FCM": true,
+    "🇬 谷歌服务": true,
+    "🍎 苹果服务": true,
+    "Ⓜ️ 微软服务": true,
+    "💾 OneDrive": true,
+    "💳 PayPal": true,
+    "🎮 游戏平台": true,
+    "🎮 Steam": true,
+    "⏬ PT站点": true,
+    "🚀 测速工具": true,
+    "🌍 国外域名": true,
+    "🐟 漏网之鱼": true,
+    "🔀 非标端口": true,
+    "🇭🇰 香港节点": true,
+    "🇺🇸 美国节点": true,
+    "🇯🇵 日本节点": false,
+    "🇸🇬 新加坡节点": false,
+    "🇼🇸 台湾节点": false,
+    "🇰🇷 韩国节点": false,
+    "🇨🇦 加拿大节点": false,
+    "🇬🇧 英国节点": false,
+    "🇫🇷 法国节点": false,
+    "🇩🇪 德国节点": false,
+    "🇳🇱 荷兰节点": false,
+    "🇹🇷 土耳其节点": false,
+    "🇷🇺 俄罗斯节点": false,
+    "🌐 其他地区": true,
+    "🏠 家宽节点": false,
+    "🐢 低倍率节点": false,
+    "🔥 高倍率节点": true,
+    "🎯 全球直连": true
+  },
+  "protocols": [
+    {
+      "name": "native-ss-0",
+      "type": "ss",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-ssr-1",
+      "type": "ssr",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-vmess-2",
+      "type": "vmess",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-vless-3",
+      "type": "vless",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-trojan-4",
+      "type": "trojan",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-http-5",
+      "type": "http",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "HTTPS",
+      "type": "http",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-socks5-7",
+      "type": "socks5",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-snell-8",
+      "type": "snell",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-ssh-9",
+      "type": "ssh",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-wireguard-10",
+      "type": "wireguard",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-hysteria-11",
+      "type": "hysteria",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-hysteria2-12",
+      "type": "hysteria2",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "TUIC4",
+      "type": "tuic",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "TUIC5",
+      "type": "tuic",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-anytls-15",
+      "type": "anytls",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-mieru-16",
+      "type": "mieru",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-shadowquic-17",
+      "type": "shadowquic",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-masque-18",
+      "type": "masque",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-sudoku-19",
+      "type": "sudoku",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-trusttunnel-20",
+      "type": "trusttunnel",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-gost-relay-21",
+      "type": "gost-relay",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-tailscale-22",
+      "type": "tailscale",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-zerotier-23",
+      "type": "zerotier",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-easytier-24",
+      "type": "easytier",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-openvpn-25",
+      "type": "openvpn",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-direct-26",
+      "type": "direct",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-dns-27",
+      "type": "dns",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-reject-28",
+      "type": "reject",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "native-rematch-29",
+      "type": "rematch",
+      "source": "native",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "SS",
+      "type": "ss",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "SSR",
+      "type": "ssr",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "VMess",
+      "type": "vmess",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "VLESS-tcp",
+      "type": "vless",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "VLESS-ws",
+      "type": "vless",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "VLESS-grpc",
+      "type": "vless",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "VLESS-h2",
+      "type": "vless",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "VLESS-httpupgrade",
+      "type": "vless",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "VLESS-xhttp",
+      "type": "vless",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "Reality",
+      "type": "vless",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "Trojan",
+      "type": "trojan",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "HY1",
+      "type": "hysteria",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "HY2",
+      "type": "hysteria2",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "TUIC4 (2)",
+      "type": "tuic",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "TUIC5 (2)",
+      "type": "tuic",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "AnyTLS",
+      "type": "anytls",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "HTTPS (2)",
+      "type": "http",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "HTTP",
+      "type": "http",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "SOCKS",
+      "type": "socks5",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "SSH",
+      "type": "ssh",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "Snell",
+      "type": "snell",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "WG",
+      "type": "wireguard",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "Mieru:2999/TCP",
+      "type": "mieru",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "Mieru:3000-3009/UDP",
+      "type": "mieru",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "香港 2.5x",
+      "type": "ss",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    },
+    {
+      "name": "美国 1x",
+      "type": "ss",
+      "source": "URI",
+      "preserved": true,
+      "mihomoConfigValid": true,
+      "detail": "configuration test passed",
+      "connectivity": "not tested; fictional credentials"
+    }
+  ]
+}
