@@ -20,12 +20,13 @@ export default {
       requireValue(env.ACCESS_KEY && /^[A-Za-z0-9_-]{32,}$/.test(env.ACCESS_KEY),'SERVICE_NOT_CONFIGURED');
       requireValue(url.pathname==='/k/'+env.ACCESS_KEY+'/sub','NOT_FOUND');
       requireValue(env.ACCEPTED==='true','ACCEPTANCE_GATE_CLOSED');
+      if(!url.search)return response('OK - OpenClash subconverter is ready',200,{'content-type':'text/plain; charset=utf-8'});
       requireValue(env.CONVERT_RATE,'SERVICE_NOT_CONFIGURED');
       if(!(await env.CONVERT_RATE.limit({key:'conversion'})).success)return response('RATE_LIMITED',429,{'retry-after':'60'});
       requireValue(url.href.length<=16000,'REQUEST_TOO_LONG');
       const q=url.searchParams;
       for(const key of q.keys()){requireValue(allowed.has(key),'UNSUPPORTED_API_PARAMETER');requireValue(q.getAll(key).length===1,'DUPLICATE_API_PARAMETER');}
-      requireValue(q.get('target')==='clash' || q.get('target')==='clashr','TARGET_MUST_BE_MIHOMO');
+      requireValue(['clash','clashr','mihomo','meta','clashmeta','clash.meta'].includes(q.get('target')||''),'TARGET_NOT_SUPPORTED');
       requireValue(q.get('config')===TEMPLATE,'TEMPLATE_NOT_ALLOWED');
       requireValue(!q.get('tls13')||q.get('tls13')==='false','TLS13_OVERRIDE_UNSUPPORTED');
       requireValue(!q.get('rule_provider')||q.get('rule_provider')==='true','INLINE_RULE_EXPANSION_UNSUPPORTED');

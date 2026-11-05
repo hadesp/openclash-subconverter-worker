@@ -8,6 +8,11 @@ const template=fs.readFileSync(new URL('../templates/Full.ini',import.meta.url),
 const key='FAKE_TEST_ACCESS_KEY_'+'x'.repeat(32);
 const env={ACCESS_KEY:key,RELEASE:'fixture',ACCEPTED:'true',CONVERT_RATE:{limit:async()=>({success:true})}};
 const templateURL='https://raw.githubusercontent.com/hadesp/Custom_OpenClash_Rules/main/cfg/Custom_Clash_Full.ini';
+test('bare authenticated endpoint is reachable',async()=>{
+ const r=await worker.fetch(new Request('https://test.invalid/k/'+key+'/sub'),env);
+ assert.equal(r.status,200);
+ assert.match(await r.text(),/ready/i);
+});
 test('exact OpenClash 0.48.002 request produces a full mixed protocol YAML; no secret propagation',async()=>{
  const original=globalThis.fetch,seen:string[]=[];
  try{
