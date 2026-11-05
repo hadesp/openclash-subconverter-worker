@@ -1,10 +1,10 @@
 import {stringify} from 'yaml';
 import {ConversionError,requireValue} from './errors.ts';
-import {retrieve} from './network.ts';
+import {bounded,retrieve} from './network.ts';
 import {loadSubscription} from './subscription.ts';
 import {generate,parseINI,renameAndFilter} from './ini.ts';
 
-export interface Env {ACCESS_KEY?:string; RELEASE:string; ACCEPTED?:string; CONVERT_RATE?:{limit(options:{key:string}):Promise<{success:boolean}>};}
+export interface Env {ACCESS_KEY?:string; INTERNAL_FETCH_KEY?:string; RELEASE:string; ACCEPTED?:string; CONVERT_RATE?:{limit(options:{key:string}):Promise<{success:boolean}>};}
 const TEMPLATE='https://raw.githubusercontent.com/hadesp/Custom_OpenClash_Rules/main/cfg/Custom_Clash_Full.ini';
 const headers={'cache-control':'private, no-store, max-age=0','cdn-cache-control':'no-store','cloudflare-cdn-cache-control':'no-store','pragma':'no-cache','expires':'0','referrer-policy':'no-referrer','x-content-type-options':'nosniff'};
 const allowed=new Set(['target','new_name','url','config','include','exclude','emoji','list','sort','udp','scv','append_type','fdn','rule_provider','expand','classic','tfo','tls13']);
@@ -15,12 +15,24 @@ const clientUserAgent=(request:Request)=>{
     ? value
     : 'Clash.Meta';
 };
+async function isolatedRetrieve(origin:string,source:string,agent:string,env:Env):Promise<string>{
+  requireValue(env.INTERNAL_FETCH_KEY&&env.INTERNAL_FETCH_KEY.length>=32,'SERVICE_NOT_CONFIGURED');
+  let res:Response;
+  try{res=await fetch(origin+'/internal-source?url='+encodeURIComponent(source),{headers:{'x-internal-fetch-key':env.INTERNAL_FETCH_KEY,'user-agent':agent},cache:'no-store',redirect:'error',signal:AbortSignal.timeout(15000)});}
+  catch{throw new ConversionError('UPSTREAM_UNAVAILABLE',502);}
+  requireValue(res.ok,'UPSTREAM_BAD_STATUS');return bounded(res);
+}
 export default {
   async fetch(request:Request,env:Env):Promise<Response> {
     let stage='REQUEST';
     try {
       const url=new URL(request.url);
       if(request.method!=='GET')return response('METHOD_NOT_ALLOWED',405,{allow:'GET'});
+      if(url.pathname==='/internal-source'){
+        requireValue(env.INTERNAL_FETCH_KEY&&request.headers.get('x-internal-fetch-key')===env.INTERNAL_FETCH_KEY,'NOT_FOUND');
+        const source=url.searchParams.get('url');requireValue(source&&url.searchParams.size===1,'INVALID_SOURCE_URL');
+        return response(await retrieve(source,{'user-agent':clientUserAgent(request)}),200,{'content-type':'text/plain; charset=utf-8'});
+      }
       if(url.pathname==='/version'||(env.ACCESS_KEY&&url.pathname==='/k/'+env.ACCESS_KEY+'/version'))return response('hadesp-subconverter '+env.RELEASE+'; Mihomo v1.19.33; enabled='+(env.ACCEPTED==='true'),200,{'content-type':'text/plain; charset=utf-8','access-control-allow-origin':'*'});
       // Fail closed: a development artifact must never become a public conversion proxy by accident.
       requireValue(env.ACCESS_KEY && /^[A-Za-z0-9_-]{32,}$/.test(env.ACCESS_KEY),'SERVICE_NOT_CONFIGURED');
@@ -39,13 +51,16 @@ export default {
       const sources=(q.get('url')||'').split('|');requireValue(sources.length>0&&sources.length<=32&&sources.every(Boolean),'INVALID_SOURCE_COUNT');
       // Sequential download bounds concurrent memory/subrequest use; no response or subscription caching.
       const nodes=[],sourceAgents=[clientUserAgent(request),'clash-verge/v2.4.5','Clash.Meta','clash'].filter((v,i,a)=>a.indexOf(v)===i);
-      for(const source of sources){
-        let parsed=false,lastError:unknown;const validatedHosts=new Set<string>();
+      for(const [sourceIndex,source] of sources.entries()){
+        let parsed=false,lastError:unknown;
         for(const agent of sourceAgents){
-          try {stage='SOURCE_DOWNLOAD';const content=await retrieve(source,{'user-agent':agent},undefined,validatedHosts);stage='SOURCE_PARSE';nodes.push(...await loadSubscription(content));parsed=true;break;}
+          try {stage='SOURCE_DOWNLOAD';const content=await isolatedRetrieve(url.origin,source,agent,env);stage='SOURCE_PARSE';nodes.push(...await loadSubscription(content));parsed=true;break;}
           catch(e){lastError=e;}
         }
-        if(!parsed)throw lastError;
+        if(!parsed){
+          const error=lastError instanceof ConversionError?lastError:new ConversionError('INTERNAL_SOURCE',500);
+          throw new ConversionError('SOURCE_'+(sourceIndex+1)+'_'+error.code,error.status);
+        }
       }
       requireValue(nodes.length<=2000,'TOO_MANY_NODES');
       stage='TEMPLATE_DOWNLOAD';const ini=await retrieve(TEMPLATE);stage='TEMPLATE_PARSE';const template=parseINI(ini);

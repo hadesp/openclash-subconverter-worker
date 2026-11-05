@@ -6,7 +6,7 @@ import worker from '../src/index.ts';
 import {uriCases} from './fixtures.ts';
 const template=fs.readFileSync(new URL('../templates/Full.ini',import.meta.url),'utf8');
 const key='FAKE_TEST_ACCESS_KEY_'+'x'.repeat(32);
-const env={ACCESS_KEY:key,RELEASE:'fixture',ACCEPTED:'true',CONVERT_RATE:{limit:async()=>({success:true})}};
+const env={ACCESS_KEY:key,INTERNAL_FETCH_KEY:'FAKE_INTERNAL_'+'y'.repeat(32),RELEASE:'fixture',ACCEPTED:'true',CONVERT_RATE:{limit:async()=>({success:true})}};
 const templateURL='https://raw.githubusercontent.com/hadesp/Custom_OpenClash_Rules/main/cfg/Custom_Clash_Full.ini';
 test('bare authenticated endpoint is reachable',async()=>{
  const r=await worker.fetch(new Request('https://test.invalid/k/'+key+'/sub'),env);
