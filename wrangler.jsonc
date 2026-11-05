@@ -7,5 +7,5 @@
   "workers_dev": true,
   "observability": {"enabled": false},
   "ratelimits": [{"name":"CONVERT_RATE","namespace_id":"2026110501","simple":{"limit":20,"period":60}}],
-  "vars": {"RELEASE": "0.1.0-unaccepted"}
+  "vars": {"RELEASE": "0.1.0", "ACCEPTED": "true"}
 }

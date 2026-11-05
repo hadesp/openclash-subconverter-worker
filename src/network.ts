@@ -25,11 +25,11 @@ export async function bounded(response:Response,max=MAX_BYTES):Promise<string> {
   const all=new Uint8Array(size);let at=0;for(const part of chunks){all.set(part,at);at+=part.length;}
   try{return new TextDecoder('utf-8',{fatal:true}).decode(all);}catch{throw new ConversionError('UPSTREAM_NOT_UTF8');}
 }
-export async function publicDNS(host:string,fetcher:typeof fetch=fetch):Promise<string[]> {
+export async function publicDNS(host:string,fetcher:typeof fetch=globalThis.fetch.bind(globalThis)):Promise<string[]> {
   host=host.replace(/^\[|\]$/g,'');
   if(ipaddr.isValid(host)){requireValue(publicIP(host),'PRIVATE_ADDRESS_DENIED');return [host];}
   const results=await Promise.all(['A','AAAA'].map(async type=>{
-    const res=await fetcher('https://cloudflare-dns.com/dns-query?'+new URLSearchParams({name:host,type}),{headers:{accept:'application/dns-json'},signal:AbortSignal.timeout(4000),redirect:'error',cache:'no-store'});
+    const res=await fetcher('https://cloudflare-dns.com/dns-query?'+new URLSearchParams({name:host,type}),{headers:{accept:'application/dns-json'},signal:AbortSignal.timeout(4000),redirect:'manual',cache:'no-store'});
     requireValue(res.ok,'DNS_FAILED');const data=JSON.parse(await bounded(res,64000));
     requireValue(data.Status===0,'DNS_FAILED');
     return (data.Answer??[]).filter((x:any)=>x.type===1||x.type===28).map((x:any)=>String(x.data));
@@ -40,13 +40,15 @@ export async function publicDNS(host:string,fetcher:typeof fetch=fetch):Promise<
  * A production deployment is gated until edge network/rebinding tests pass.
  * No VPC/Tunnel bindings, resolveOverride, cookies or incoming headers are forwarded.
  */
-export async function retrieve(value:string,fetcher:typeof fetch=fetch):Promise<string> {
-  let u=validateURL(value);const deadline=Date.now()+12000;
+export async function retrieve(value:string,headersOrFetcher:Record<string,string>|typeof fetch={},testFetcher?:typeof fetch):Promise<string> {
+  const fetcher=typeof headersOrFetcher==='function'?headersOrFetcher:(testFetcher||globalThis.fetch.bind(globalThis));
+  const extra=typeof headersOrFetcher==='function'?{}:headersOrFetcher;
+  let u=validateURL(value);const origin=u.origin,deadline=Date.now()+12000;
   for(let count=0;count<=3;count++){
     await publicDNS(u.hostname,fetcher);
     const time=deadline-Date.now();requireValue(time>0,'UPSTREAM_TIMEOUT');
     let res:Response;
-    try {res=await fetcher(u.href,{method:'GET',redirect:'manual',cache:'no-store',signal:AbortSignal.timeout(time),headers:{'user-agent':'Clash.Meta/OpenClash-private-converter','accept':'application/yaml,text/plain,application/octet-stream','cache-control':'no-store'}});}
+    try {res=await fetcher(u.href,{method:'GET',redirect:'manual',cache:'no-store',signal:AbortSignal.timeout(time),headers:{'user-agent':'Clash.Meta/OpenClash-private-converter','accept':'application/yaml,text/plain,application/octet-stream','cache-control':'no-store',...(u.origin===origin?extra:{})}});}
     catch{throw new ConversionError('UPSTREAM_UNAVAILABLE',502);}
     if([301,302,303,307,308].includes(res.status)){
       const location=res.headers.get('location');await res.body?.cancel();

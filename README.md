@@ -2,7 +2,7 @@
 
 This repository contains an independent TypeScript converter, public Full templates and fictional test fixtures. Conversion runs in the user's Cloudflare Worker. It does not delegate conversion to public services, run GitHub Actions as an online server, or install software on a router.
 
-**Deployment acceptance remains closed until the release report says otherwise.** `/version` reports the exact release and acceptance state. Do not replace the OpenClash backend with a test deployment.
+`/version` reports the deployed commit and service acceptance state. The release report distinguishes tested conversion behavior from router settings and real-node connectivity, which were not changed or tested with private subscriptions.
 
 The target tested locally is official Mihomo **v1.19.33**. OpenClash **0.48.002** directly appends `?target=clash...` to `convert_address`; its service field must contain the complete `/k/<private-key>/sub` endpoint. A query parameter appended to the service address would interfere with this construction. The private key belongs in the Cloudflare `ACCESS_KEY` secret, never in this repository. Both root `/version` and the authenticated path prefix's `/version` work with the OpenClash version detector and return fewer than 220 characters.
 
@@ -25,7 +25,7 @@ The companion YAML is a public example with an invalid provider placeholder. It 
 
 ## Limits and explicit exclusions
 
-This is a Full-template-compatible backend, not an implementation of every SubConverter output target, arbitrary JavaScript/QuickJS templates, every PCRE extension, or every unstandardized share-link dialect. Unknown options fail explicitly. Only the published hadesp Full template URL is accepted. Nested `proxy-providers` in input configurations currently fail explicitly; native `proxies:` and Provider payload YAML are supported. Force-TLS1.3 is not mapped because that is not a general native Mihomo outbound option. No compatibility claim is made for those excluded paths.
+This is a Full-template-compatible backend, not an implementation of every SubConverter output target, arbitrary JavaScript/QuickJS templates, every PCRE extension, or every unstandardized share-link dialect. Unknown options fail explicitly. Only the published hadesp Full template URL is accepted. Native HTTP/inline `proxy-providers` are flattened in memory with bounded recursion, filtering and field overrides. Local-file providers, fetching through a proxy node and provider-level `proxy-name` override expressions fail explicitly. Force-TLS1.3 is not mapped because that is not a general native Mihomo outbound option. No compatibility claim is made for those excluded paths.
 
 Input is capped at 2 MB per source, 2,000 merged nodes, eight sources, three redirects and 16 KB request URLs. HTTP(S) default ports only. Free Workers CPU and request limits still apply. A successful `-t` checks configuration syntax and initialization, not node connectivity, TLS handshakes, UDP relay, bandwidth or QUIC interoperability.
 
@@ -33,7 +33,7 @@ Input is capped at 2 MB per source, 2,000 merged nodes, eight sources, three red
 
 Cloudflare necessarily processes subscription URLs and returned node data. Tokens do leave the router for this service. Runtime code does not log original requests, subscriptions, upstream bodies or node configurations, does not forward incoming headers, does not use KV/R2/D1, and returns private/no-store cache headers. Observability is disabled. Cloudflare's network/platform and the subscription origin can still process or retain information independently of application code.
 
-The network guard rejects private, loopback, link-local, special-purpose, metadata, malformed/encoded IP and invalid host destinations; validates A/AAAA results; checks every manual redirect; and caps response bytes and time. **DNS preflight is not DNS pinning.** Production acceptance requires a documented decision on DNS rebinding and edge egress enforcement; unit tests alone do not establish that property. The acceptance gate is intentional. The rate limiter is approximately 20 conversions/minute per Cloudflare location, not a strict global counter. Its key is a constant label, not a subscription or IP address.
+The network guard rejects private, loopback, link-local, special-purpose, metadata, malformed/encoded IP and invalid host destinations; validates A/AAAA results; checks every manual redirect; and caps response bytes and time. **DNS preflight is not DNS pinning.** Edge tests observed Cloudflare error 1003 for direct private-IP targets and error 1016 for a private-address DNS name; protection against changes between DNS preflight and fetch relies on Cloudflare's egress enforcement. This is an explicit platform dependency, not a claim of application-level DNS pinning. The rate limiter is approximately 20 conversions/minute per Cloudflare location, not a strict global counter. Its key is a constant label, not a subscription or IP address.
 
 Direct routing and bypassing the Mihomo kernel are different. `cnki.net`, `wanfangdata.com.cn`, `edu.cn`, `ac.cn` and other Chinese academic domains rely on the router's existing mainland-bypass/DNS/IP conditions. These two subscription fields cannot enable that setting. No router bypass setting was changed by this project.
 

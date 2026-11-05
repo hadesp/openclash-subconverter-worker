@@ -29,14 +29,15 @@ export function parseYAML(text: string): any {
 export function parseSubscription(text: string, depth=0): Proxy[] {
   requireValue(depth < 3 && text.length <= 2_000_000,'SUBSCRIPTION_TOO_LARGE');
   text = text.trim().replace(/^\uFEFF/,'');
-  if ((text.startsWith('{')||/^(?:---\s*\n)?(?:#.*\n|\s)*[\w'"-]+\s*:/.test(text)) && !/^\w+:\/\//.test(text)) {
+  const first=text.split(/\r?\n/).find(l=>l.trim()&&!l.trim().startsWith('#')&&l.trim()!=='---')?.trim()||'';
+  if ((first.startsWith('{')||/^[\w'"-]+\s*:/.test(first)) && !/^[a-z][a-z0-9+.-]*:\/\//i.test(first)) {
     const doc = parseYAML(text);
     requireValue(doc && Array.isArray(doc.proxies),'YAML_PROXIES_REQUIRED');
     requireValue(!Object.keys(doc['proxy-providers'] ?? {}).length, 'NESTED_PROXY_PROVIDERS_UNSUPPORTED');
     requireValue(doc.proxies.length > 0 && doc.proxies.length <= 2000,'INVALID_PROXY_COUNT');
     return doc.proxies.map(validateProxy);
   }
-  if (!text.includes('://')) return parseSubscription(base64(text),depth+1);
+  if (!text.includes('://')) return parseSubscription(base64(text.split(/\r?\n/).filter(l=>!l.trim().startsWith('#')).join('')),depth+1);
   const lines=text.split(/\r?\n/).map(s=>s.trim()).filter(s=>s && !s.startsWith('#'));
   requireValue(lines.length > 0 && lines.length <= 2000,'INVALID_PROXY_COUNT');
   return lines.flatMap(line => {

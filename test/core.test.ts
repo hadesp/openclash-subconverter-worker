@@ -28,6 +28,7 @@ test('mixed native YAML preserves every field, including unknown nested fields',
 });
 test('URI list, base64 mixed subscription, CRLF and unicode',()=>{
  const plain=uriCases.join('\r\n');const parsed=parseSubscription(plain);
+ assert.deepEqual(parseSubscription('# Entirely fictional subscription\n\n'+plain),parsed);
  assert.equal(parsed.length,uriCases.length+1);assert.deepEqual(parseSubscription(Buffer.from(plain).toString('base64')),parsed);
  assert.equal(parsed.find(p=>p.name==='Mieru:3000-3009/UDP')!['port-range'],'3000-3009');
  assert.equal(parsed.find(p=>p.name==='VLESS-httpupgrade')!['ws-opts']['v2ray-http-upgrade'],true);
@@ -84,7 +85,7 @@ test('URL parser rejects encoded/alternative private IPs and ports',()=>{
  assert(validateURL('https://www.nature.com/path?token=FAKE'));
 });
 test('DNS denies mixed private/public answers',async()=>{
- const mock=(async()=>new Response(JSON.stringify({Status:0,Answer:[{type:1,data:'1.1.1.1'},{type:1,data:'127.0.0.1'}]}))) as typeof fetch;
+ const mock=(async(_input:any,init:any)=>{assert.equal(init.redirect,'manual');return new Response(JSON.stringify({Status:0,Answer:[{type:1,data:'1.1.1.1'},{type:1,data:'127.0.0.1'}]}));}) as typeof fetch;
  await assert.rejects(()=>publicDNS('example.org',mock));
 });
 test('redirects revalidate destination and response size is capped',async()=>{
@@ -94,7 +95,7 @@ test('redirects revalidate destination and response size is capped',async()=>{
 });
 test('service gate, version and redacted errors; private responses are never cached',async()=>{
  const env={RELEASE:'test',ACCESS_KEY:'A'.repeat(40)};
- const v=await worker.fetch(new Request('https://test.invalid/version'),env);assert((await v.text()).includes('accepted=false'));
+ const v=await worker.fetch(new Request('https://test.invalid/version'),env);assert((await v.text()).includes('enabled=false'));
  const r=await worker.fetch(new Request('https://test.invalid/k/'+env.ACCESS_KEY+'/sub?url=SECRET'),env);
  assert.equal(await r.text(),'ACCEPTANCE_GATE_CLOSED');assert(r.headers.get('cache-control')!.includes('no-store'));
  assert.equal((await worker.fetch(new Request('https://test.invalid/sub?token=SECRET'),env)).status,404);

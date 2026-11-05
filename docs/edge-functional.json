@@ -1,0 +1,34 @@
+[
+  {
+    "name": "fictional-subscription.txt",
+    "copies": 1,
+    "status": 200,
+    "bytes": 46890,
+    "elapsedMs": 1887,
+    "error": null
+  },
+  {
+    "name": "fictional-subscription.txt",
+    "copies": 8,
+    "status": 200,
+    "bytes": 236149,
+    "elapsedMs": 3106,
+    "error": null
+  },
+  {
+    "name": "fictional-subscription.yaml",
+    "copies": 1,
+    "status": 200,
+    "bytes": 64096,
+    "elapsedMs": 887,
+    "error": null
+  },
+  {
+    "name": "fictional-subscription.yaml",
+    "copies": 8,
+    "status": 200,
+    "bytes": 381525,
+    "elapsedMs": 2631,
+    "error": null
+  }
+]
