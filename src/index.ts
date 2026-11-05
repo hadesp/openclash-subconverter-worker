@@ -40,9 +40,9 @@ export default {
       // Sequential download bounds concurrent memory/subrequest use; no response or subscription caching.
       const nodes=[],sourceAgents=[clientUserAgent(request),'clash-verge/v2.4.5','Clash.Meta','clash'].filter((v,i,a)=>a.indexOf(v)===i);
       for(const source of sources){
-        let parsed=false,lastError:unknown;
+        let parsed=false,lastError:unknown;const validatedHosts=new Set<string>();
         for(const agent of sourceAgents){
-          try {stage='SOURCE_DOWNLOAD';const content=await retrieve(source,{'user-agent':agent});stage='SOURCE_PARSE';nodes.push(...await loadSubscription(content));parsed=true;break;}
+          try {stage='SOURCE_DOWNLOAD';const content=await retrieve(source,{'user-agent':agent},undefined,validatedHosts);stage='SOURCE_PARSE';nodes.push(...await loadSubscription(content));parsed=true;break;}
           catch(e){lastError=e;}
         }
         if(!parsed)throw lastError;
