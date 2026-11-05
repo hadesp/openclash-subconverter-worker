@@ -21,10 +21,11 @@ test('exact OpenClash 0.48.002 request produces a full mixed protocol YAML; no s
    assert(!JSON.stringify(init?.headers||{}).includes(key));
    if(url.includes('dns-query'))return new Response(JSON.stringify({Status:0,Answer:[{type:1,data:'1.1.1.1'}]}));
    if(url===templateURL)return new Response(template);
+   assert.equal(init?.headers?.['user-agent'],'clash-verge/v9.8.7');
    return new Response(uriCases.join('\n'));
   }) as typeof fetch;
   const q=new URLSearchParams({target:'clash',new_name:'true',url:'https://example.org/fake?token=FAKE|https://example.net/fake?token=FAKE',config:templateURL,include:'',exclude:'',emoji:'true',list:'false',sort:'false',scv:'false',append_type:'false',fdn:'true',expand:'false',classic:'true'});
-  const r=await worker.fetch(new Request('https://test.invalid/k/'+key+'/sub?'+q),env);
+  const r=await worker.fetch(new Request('https://test.invalid/k/'+key+'/sub?'+q,{headers:{'user-agent':'clash-verge/v9.8.7'}}),env);
   assert.equal(r.status,200);const config=parse(await r.text());
   assert.equal(config['proxy-groups'].length,64);assert.equal(config.rules.length,64);
   assert.equal(config.proxies.length,(uriCases.length+1)*2);

@@ -9,6 +9,12 @@ const TEMPLATE='https://raw.githubusercontent.com/hadesp/Custom_OpenClash_Rules/
 const headers={'cache-control':'private, no-store, max-age=0','cdn-cache-control':'no-store','cloudflare-cdn-cache-control':'no-store','pragma':'no-cache','expires':'0','referrer-policy':'no-referrer','x-content-type-options':'nosniff'};
 const allowed=new Set(['target','new_name','url','config','include','exclude','emoji','list','sort','udp','scv','append_type','fdn','rule_provider','expand','classic','tfo','tls13']);
 const response=(body:string,status=200,extra:Record<string,string>={})=>new Response(body,{status,headers:{...headers,...extra}});
+const clientUserAgent=(request:Request)=>{
+  const value=(request.headers.get('user-agent')||'').trim();
+  return value.length<=256 && /^[\x20-\x7E]+$/.test(value) && /(?:clash|mihomo|meta|verge|openclash)/i.test(value)
+    ? value
+    : 'Clash.Meta';
+};
 export default {
   async fetch(request:Request,env:Env):Promise<Response> {
     let stage='REQUEST';
@@ -32,8 +38,8 @@ export default {
       requireValue(!q.get('rule_provider')||q.get('rule_provider')==='true','INLINE_RULE_EXPANSION_UNSUPPORTED');
       const sources=(q.get('url')||'').split('|');requireValue(sources.length>0&&sources.length<=8&&sources.every(Boolean),'INVALID_SOURCE_COUNT');
       // Sequential download bounds concurrent memory/subrequest use; no response or subscription caching.
-      const nodes=[];
-      for(const source of sources){stage='SOURCE_DOWNLOAD';const content=await retrieve(source);stage='SOURCE_PARSE';nodes.push(...await loadSubscription(content));}
+      const nodes=[],sourceHeaders={'user-agent':clientUserAgent(request)};
+      for(const source of sources){stage='SOURCE_DOWNLOAD';const content=await retrieve(source,sourceHeaders);stage='SOURCE_PARSE';nodes.push(...await loadSubscription(content));}
       requireValue(nodes.length<=2000,'TOO_MANY_NODES');
       stage='TEMPLATE_DOWNLOAD';const ini=await retrieve(TEMPLATE);stage='TEMPLATE_PARSE';const template=parseINI(ini);
       stage='NODE_TRANSFORM';
