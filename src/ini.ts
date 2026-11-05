@@ -56,7 +56,16 @@ export function renameAndFilter(nodes:Proxy[],t:Template,q:URLSearchParams):Prox
   for(const p of nodes)if(p['dialer-proxy']){p['dialer-proxy']=mapping.get(p['dialer-proxy'])||p['dialer-proxy'];requireValue(seen.has(p['dialer-proxy']) || p['dialer-proxy']==='DIRECT','MISSING_DIALER_PROXY');}
   return nodes;
 }
-export function generate(t:Template,nodes:Proxy[]) {
+function providerFilter(raw:string,name:string):string|undefined {
+  if(name==='🌐 其他地区')return undefined;
+  return raw
+    .replaceAll('(?<!尼|-)日','日')
+    .replaceAll('(?<!白)俄罗斯','俄罗斯')
+    .replaceAll('(?<!白)俄','俄')
+    .replaceAll('(?<![\\d\\.])','(^|[^0-9.])')
+    .replaceAll('(?![0-9])','($|[^0-9])');
+}
+export function generate(t:Template,nodes:Proxy[],sourceURLs:string[]=[],userAgent='Clash.Meta',q=new URLSearchParams()) {
   const rules:string[]=[],providers:Record<string,any>={};
   for(const entry of t.rulesets) {
     const comma=entry.indexOf(',');requireValue(comma>0,'INVALID_RULESET');
@@ -78,6 +87,15 @@ export function generate(t:Template,nodes:Proxy[]) {
       rules.push('RULE-SET,'+id+','+policy);
     }
   }
+  const proxyProviders:Record<string,any>={};
+  const providerNames=sourceURLs.map((source,index)=>{
+    const url=new URL(source),base=(index+1).toString().padStart(2,'0')+'-'+url.hostname;
+    const name=proxyProviders[base]?base+'-'+(index+1):base;
+    proxyProviders[name]={type:'http',url:source,path:'./proxy_provider/'+name+'.yaml',interval:3600,header:{'User-Agent':[userAgent]},'health-check':{enable:true,url:'https://www.gstatic.com/generate_204',interval:300}};
+    if(q.get('include'))proxyProviders[name].filter=q.get('include');
+    if(q.get('exclude'))proxyProviders[name]['exclude-filter']=q.get('exclude');
+    return name;
+  });
   const available:Record<string,boolean>={};
   const groups=t.groups.map(line=>{
     const [name,type,...parts]=line.split('`');
@@ -90,9 +108,15 @@ export function generate(t:Template,nodes:Proxy[]) {
     if(name==='🔥 高倍率节点')matched=nodes.filter(p=>isHighMultiplier(p.name));
     if(name==='♻️ 自动选择')matched=matched.filter(p=>!isHighMultiplier(p.name));
     const g:Record<string,any>={name,type,proxies:[...new Set([...explicit,...matched.map(p=>p.name)])]};
-    available[name]=matched.length>0 || explicit.length>0;
+    if(providerNames.length && patterns.length){
+      g.use=providerNames;
+      const raw=selectors.filter(s=>!s.startsWith('[]')).join('|');
+      const filter=providerFilter(raw,name);if(filter)g.filter=filter;
+    }
+    available[name]=matched.length>0 || explicit.length>0 || (providerNames.length>0 && patterns.length>0);
     // A visible REJECT sentinel makes an unavailable group valid without silently choosing a paid node.
-    if(!g.proxies.length)g.proxies=['REJECT'];
+    if(!g.proxies.length && !g.use)g.proxies=['REJECT'];
+    if(!g.proxies.length)delete g.proxies;
     if(type!=='select'){
       requireValue(urlAt>=0,'GROUP_TEST_URL_REQUIRED');
       g.url=parts[urlAt];const [interval,_timeout,tolerance]=(parts[urlAt+1]||'300,,50').split(',');
@@ -101,16 +125,16 @@ export function generate(t:Template,nodes:Proxy[]) {
     }
     // These RE2-compatible filters document and reinforce the materialized membership.
     if(name==='♻️ 自动选择')g['exclude-filter']=HIGH_FILTER;
-    if(name==='🔥 高倍率节点' && matched.length)g.filter=HIGH_FILTER;
+    if(name==='🔥 高倍率节点' && (matched.length||providerNames.length))g.filter=HIGH_FILTER;
     return g;
   });
   const names=new Set([...groups.map(g=>g.name),...nodes.map(p=>p.name),'DIRECT','REJECT','REJECT-DROP','PASS','COMPATIBLE']);
   requireValue(new Set(groups.map(g=>g.name)).size===groups.length,'DUPLICATE_GROUP');
   requireValue(!groups.some(g=>nodes.some(p=>p.name===g.name)),'PROXY_GROUP_NAME_COLLISION');
-  for(const g of groups)for(const ref of g.proxies)requireValue(names.has(ref),'DANGLING_GROUP_REFERENCE');
+  for(const g of groups)for(const ref of g.proxies??[])requireValue(names.has(ref),'DANGLING_GROUP_REFERENCE');
   const adjacency=new Map(groups.map(g=>[g.name,g.proxies]));
   const visit=(n:string,path:Set<string>)=>{requireValue(!path.has(n),'GROUP_CYCLE');for(const ref of adjacency.get(n)??[])if(adjacency.has(ref))visit(ref,new Set([...path,n]));};
   for(const g of groups)visit(g.name,new Set());
   for(const rule of rules){const fields=rule.split(',');const policy=fields.at(-1)==='no-resolve'?fields.at(-2):fields.at(-1);requireValue(names.has(policy!),'DANGLING_RULE_POLICY');}
-  return {config:{proxies:nodes,'proxy-groups':groups,'rule-providers':providers,rules},available};
+  return {config:{proxies:nodes,'proxy-providers':proxyProviders,'proxy-groups':groups,'rule-providers':providers,rules},available};
 }
