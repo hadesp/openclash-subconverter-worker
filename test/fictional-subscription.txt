@@ -1,0 +1,24 @@
+# ALL FICTIONAL; NO REAL ACCOUNTS OR NODES
+ss://YWVzLTEyOC1nY206RkFLRV9URVNUX1BBU1NXT1JEX05PVF9BX1JFQUxfQ1JFREVOVElBTA@example.com:443#SS
+ssr://ZXhhbXBsZS5jb206NDQzOm9yaWdpbjphZXMtMTI4LWNmYjpwbGFpbjpSa0ZMUlY5VVJWTlVYMUJCVTFOWFQxSkVYMDVQVkY5QlgxSkZRVXhmUTFKRlJFVk9WRWxCVEEvP3JlbWFya3M9VTFOUw
+vmess://eyJ2IjoiMiIsInBzIjoiVk1lc3MiLCJhZGQiOiJleGFtcGxlLmNvbSIsInBvcnQiOiI0NDMiLCJpZCI6IjAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDAwMSIsImFpZCI6IjAiLCJzY3kiOiJhdXRvIiwibmV0Ijoid3MiLCJob3N0IjoiZXhhbXBsZS5jb20iLCJwYXRoIjoiL2Zha2UiLCJ0bHMiOiJ0bHMiLCJzbmkiOiJleGFtcGxlLmNvbSIsImZwIjoiY2hyb21lIiwiYWxwbiI6ImgyLGh0dHAvMS4xIn0=
+vless://00000000-0000-4000-8000-000000000001@example.com:443?security=tls&type=tcp&host=example.com&path=%2Ffake&serviceName=fake&alpn=h2&fp=chrome#VLESS-tcp
+vless://00000000-0000-4000-8000-000000000001@example.com:443?security=tls&type=ws&host=example.com&path=%2Ffake&serviceName=fake&alpn=h2&fp=chrome#VLESS-ws
+vless://00000000-0000-4000-8000-000000000001@example.com:443?security=tls&type=grpc&host=example.com&path=%2Ffake&serviceName=fake&alpn=h2&fp=chrome#VLESS-grpc
+vless://00000000-0000-4000-8000-000000000001@example.com:443?security=tls&type=h2&host=example.com&path=%2Ffake&serviceName=fake&alpn=h2&fp=chrome#VLESS-h2
+vless://00000000-0000-4000-8000-000000000001@example.com:443?security=tls&type=httpupgrade&host=example.com&path=%2Ffake&serviceName=fake&alpn=h2&fp=chrome#VLESS-httpupgrade
+vless://00000000-0000-4000-8000-000000000001@example.com:443?security=tls&type=xhttp&host=example.com&path=%2Ffake&serviceName=fake&alpn=h2&fp=chrome#VLESS-xhttp
+vless://00000000-0000-4000-8000-000000000001@example.com:443?security=reality&type=tcp&flow=xtls-rprx-vision&pbk=WtTTtDnF9msgymAeJZ-VA8LK4XfiiTRjXJIvu7VvCkE&sid=0123456789abcdef&sni=example.com&fp=chrome&packetEncoding=xudp#Reality
+trojan://FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL@example.com:443?sni=example.com&type=ws&host=example.com&path=%2Ftest#Trojan
+hysteria://example.com:443?auth=FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL&upmbps=10&downmbps=50&peer=example.com&alpn=hysteria&protocol=udp&obfs=FAKE#HY1
+hy2://FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL@example.com:443,8443?sni=example.com&alpn=h3&obfs=salamander&obfs-password=FAKE&hop-interval=10s#HY2
+tuic://FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL@example.com:443?sni=example.com&congestion_control=cubic&udp_relay_mode=native&alpn=h3#TUIC4
+tuic://00000000-0000-4000-8000-000000000001:FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL@example.com:443?sni=example.com&congestion_control=bbr&udp_relay_mode=quic&alpn=h3#TUIC5
+anytls://FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL@example.com:443?sni=example.com&fp=chrome#AnyTLS
+https://fake:FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL@example.com:443#HTTPS
+http://fake:FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL@example.com:8080#HTTP
+socks5://fake:FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL@example.com:1080#SOCKS
+ssh://fake:FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL@example.com:22#SSH
+snell://FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL@example.com:443?version=3#Snell
+wireguard://GcYCBwaXNafoVWwSsuOS4WmWMfPVmj5n1qShR2bR5FM%3D@example.com:443?publickey=uFNnO%2B6ldPEIG886%2BquNodMGt82omud3emLSmWqu3%2Bo%3D&address=10.11.12.13#WG
+mierus://fake:FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL@example.com?port=2999&protocol=TCP&port=3000-3009&protocol=UDP&multiplexing=MULTIPLEXING_LOW#Mieru

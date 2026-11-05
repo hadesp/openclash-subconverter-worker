@@ -1,0 +1,263 @@
+# ALL FICTIONAL; NO REAL ACCOUNTS OR NODES
+proxies:
+  - server: example.com
+    port: 443
+    name: native-ss-0
+    type: ss
+    cipher: aes-128-gcm
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+  - server: example.com
+    port: 443
+    name: native-ssr-1
+    type: ssr
+    cipher: aes-128-cfb
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    protocol: origin
+    obfs: plain
+  - server: example.com
+    port: 443
+    name: native-vmess-2
+    type: vmess
+    uuid: 00000000-0000-4000-8000-000000000001
+    alterId: 0
+    cipher: auto
+  - server: example.com
+    port: 443
+    name: native-vless-3
+    type: vless
+    uuid: 00000000-0000-4000-8000-000000000001
+    network: tcp
+    tls: true
+    servername: example.com
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: WtTTtDnF9msgymAeJZ-VA8LK4XfiiTRjXJIvu7VvCkE
+      short-id: 0123456789abcdef
+    packet-encoding: xudp
+  - server: example.com
+    port: 443
+    name: native-trojan-4
+    type: trojan
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    sni: example.com
+  - server: example.com
+    port: 443
+    name: native-http-5
+    type: http
+    username: fake
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    tls: false
+  - server: example.com
+    port: 443
+    name: HTTPS
+    type: http
+    username: fake
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    tls: true
+    sni: example.com
+  - server: example.com
+    port: 443
+    name: native-socks5-7
+    type: socks5
+    username: fake
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    udp: true
+  - server: example.com
+    port: 443
+    name: native-snell-8
+    type: snell
+    psk: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    version: 3
+  - server: example.com
+    port: 443
+    name: native-ssh-9
+    type: ssh
+    username: fake
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+  - server: example.com
+    port: 443
+    name: native-wireguard-10
+    type: wireguard
+    private-key: O5xcu2u5+CNGHVR4UCgBz+5Kvgc+vZvUdDnBPFPkhwM=
+    public-key: r8dz+djji6TisisC6sGRR+MC0ooEN4Iakg9EZf8Bgh4=
+    ip: 10.11.12.13
+    udp: true
+  - server: example.com
+    port: 443
+    name: native-hysteria-11
+    type: hysteria
+    auth-str: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    sni: example.com
+    alpn:
+      - hysteria
+    up: 10 Mbps
+    down: 50 Mbps
+    ports: 443,8443
+    hop-interval: 10
+    obfs: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    protocol: udp
+    recv-window-conn: 16777216
+    recv-window: 4194304
+  - server: example.com
+    port: 443
+    name: native-hysteria2-12
+    type: hysteria2
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    sni: example.com
+    alpn:
+      - h3
+    up: 10 Mbps
+    down: 50 Mbps
+    obfs: salamander
+    obfs-password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    ports: 443,8443
+    hop-interval: "10"
+    initial-stream-receive-window: 4194304
+    max-stream-receive-window: 8388608
+  - server: example.com
+    port: 443
+    name: TUIC4
+    type: tuic
+    token: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    congestion-controller: cubic
+    udp-relay-mode: native
+    sni: example.com
+    alpn:
+      - h3
+  - server: example.com
+    port: 443
+    name: TUIC5
+    type: tuic
+    uuid: 00000000-0000-4000-8000-000000000001
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    congestion-controller: bbr
+    udp-relay-mode: quic
+    sni: example.com
+    alpn:
+      - h3
+    disable-sni: false
+  - server: example.com
+    port: 443
+    name: native-anytls-15
+    type: anytls
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    sni: example.com
+    client-fingerprint: chrome
+    idle-session-timeout: 30
+  - server: example.com
+    port: 443
+    name: native-mieru-16
+    type: mieru
+    username: fake
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    transport: TCP
+    multiplexing: MULTIPLEXING_LOW
+  - server: example.com
+    port: 443
+    name: native-shadowquic-17
+    type: shadowquic
+    username: fake
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    sni: example.com
+    alpn:
+      - h3
+    quic-versions:
+      - v1
+  - server: example.com
+    port: 443
+    name: native-masque-18
+    type: masque
+    private-key: MHcCAQEEINDsQdrEJbhW0cnB93qRPbhCvAovDV8bo9RJ7vjn2JQSoAoGCCqGSM49AwEHoUQDQgAEki4dBz30NQiEEjP32dlabPyANWP2ICMBTVrNaSU6LC53kliZBDSsFenRxECjG3egEuPOUYsF9jRqYsu9dRVR0A==
+    public-key: MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEki4dBz30NQiEEjP32dlabPyANWP2ICMBTVrNaSU6LC53kliZBDSsFenRxECjG3egEuPOUYsF9jRqYsu9dRVR0A==
+    ip: 10.11.12.13
+    udp: true
+  - server: example.com
+    port: 443
+    name: native-sudoku-19
+    type: sudoku
+    key: 00000000-0000-4000-8000-000000000001
+    aead-method: chacha20-poly1305
+    padding-min: 2
+    padding-max: 7
+    table-type: prefer_ascii
+  - server: example.com
+    port: 443
+    name: native-trusttunnel-20
+    type: trusttunnel
+    username: fake
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    sni: example.com
+  - server: example.com
+    port: 443
+    name: native-gost-relay-21
+    type: gost-relay
+    username: fake
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    udp: true
+  - server: example.com
+    port: 443
+    name: native-tailscale-22
+    type: tailscale
+    hostname: fake-test
+    ephemeral: true
+    control-url: https://example.invalid
+    state-dir: ./fake-tailscale-state
+  - server: example.com
+    port: 443
+    name: native-zerotier-23
+    type: zerotier
+    network: 0123456789abcdef
+    state-dir: ./fake-zerotier-state
+  - server: example.com
+    port: 443
+    name: native-easytier-24
+    type: easytier
+    network-name: FAKE_TEST_NETWORK
+    network-secret: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    peers:
+      - tcp://192.0.2.10:11010
+    state-dir: ./fake-easytier-state
+  - server: example.com
+    port: 443
+    name: native-openvpn-25
+    type: openvpn
+    proto: udp
+    username: fake
+    password: FAKE_TEST_PASSWORD_NOT_A_REAL_CREDENTIAL
+    ca: |
+      -----BEGIN CERTIFICATE-----
+      MIIC7TCCAdWgAwIBAgIUM2N47IWy1kZmY8Aw+k06OYbiCpUwDQYJKoZIhvcNAQEL
+      BQAwJjEkMCIGA1UEAwwbRkFLRSBPcGVuQ2xhc2ggVW5pdCBUZXN0IENBMB4XDTI2
+      MTEwNDEyNDAwNloXDTM2MTEwMjEyNDAwNlowJjEkMCIGA1UEAwwbRkFLRSBPcGVu
+      Q2xhc2ggVW5pdCBUZXN0IENBMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+      AQEAn9ubKldBksxdY+g5l6Es+WgEowy8PyIMn5FPwHYikIwp9ccQEB8/MxoMV4O+
+      4/DGXA5/6amDOSB3kcWCpJxB5TakBDxQq+A7kxD1eGLA0V1Bb52l1uW1aDCRhYHn
+      GmvhDvwuQdjhE9+geKBAYnO95NYHZGf9KI2aNwRYUAxSEW03XlE2nL1fsfzXAvPa
+      y9IdjVe4xqt3uung4QFWivVpNQosM3lkJsSEZPj5T6WlUmTZ0ix4MVrSb3Ak5Bml
+      h6GdP9McM7N/cE4UGGKA9bz6QVeFBrczEXTyLi3AjrsvcTp17EL3lIwjYd630B3D
+      6yxj6QzLrAfuk8UzsiUxC2QckwIDAQABoxMwETAPBgNVHRMBAf8EBTADAQH/MA0G
+      CSqGSIb3DQEBCwUAA4IBAQB5fIbv0hMxtyCUb20zBhmOGKzy0JQS+smzaM4foFB/
+      ciOtIejq4y8tibTvW6wJyQheWZlTbeR/8NSXRJeOcRQ5y7XTDjQt/nkOOcoQafgQ
+      +0LpQZol4WsJbTRoZBVswSsR5ePTV254GhR+VzimTfzVLkHTc/e/ufE30xjm7+TI
+      sXRk0TZU0IHvR+R2Ju4SBSZx585/S+WdxBaDPZeaz1Bfiy2o1wJ+2Et+ZCoMQGBy
+      Et8sKyT3thHRITERQlHHFck19jVew+gsXM1k16qxguTLU+e0qa9PeD+O1aDvt3BX
+      EuM/foCPAQZYLurM4FfvPVy1y3o+hffgxfiz9Z0L8Vjn
+      -----END CERTIFICATE-----
+  - server: example.com
+    port: 443
+    name: native-direct-26
+    type: direct
+  - server: example.com
+    port: 443
+    name: native-dns-27
+    type: dns
+  - server: example.com
+    port: 443
+    name: native-reject-28
+    type: reject
+  - server: example.com
+    port: 443
+    name: native-rematch-29
+    type: rematch
+    target-rematch-name: fixture-rematch

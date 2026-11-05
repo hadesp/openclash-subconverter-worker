@@ -16,3 +16,37 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test && npm run check && node scripts/scan-public.mjs && npm run build
+  mihomo:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: service
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          path: service
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24'
+      - run: npm ci
+      - name: Fetch pinned public rule fixtures and official binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init ../upstream-rules
+          pin=$(node -p "JSON.parse(require('fs').readFileSync('docs/source-pins.json','utf8')).rules")
+          git -C ../upstream-rules fetch --depth 1 https://github.com/Aethersailor/Custom_OpenClash_Rules.git "$pin"
+          git -C ../upstream-rules checkout FETCH_HEAD
+          curl -fLsS --retry 3 https://github.com/MetaCubeX/mihomo/releases/download/v1.19.33/mihomo-linux-amd64-compatible-v1.19.33.gz -o ../mihomo.gz
+          gzip -dc ../mihomo.gz > ../mihomo
+          chmod +x ../mihomo
+          curl -fLsS --retry 3 https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat -o ../geosite.dat
+          curl -fLsS --retry 3 https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat -o ../geoip.dat
+      - run: MIHOMO_BIN="$GITHUB_WORKSPACE/mihomo" npx tsx scripts/validate-mihomo.ts
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        if: always()
+        with:
+          name: fictional-mihomo-validation
+          path: |
+            service/test-results/compatibility.json
+            service/test-results/mihomo-full.log
