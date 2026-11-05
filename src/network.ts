@@ -40,14 +40,14 @@ export async function publicDNS(host:string,fetcher:typeof fetch=globalThis.fetc
  * A production deployment is gated until edge network/rebinding tests pass.
  * No VPC/Tunnel bindings, resolveOverride, cookies or incoming headers are forwarded.
  */
-export async function retrieve(value:string,headersOrFetcher:Record<string,string>|typeof fetch={},testFetcher?:typeof fetch,validatedHosts=new Set<string>()):Promise<string> {
+export async function retrieve(value:string,headersOrFetcher:Record<string,string>|typeof fetch={},testFetcher?:typeof fetch):Promise<string> {
   const fetcher=typeof headersOrFetcher==='function'?headersOrFetcher:(testFetcher||globalThis.fetch.bind(globalThis));
   const extra=typeof headersOrFetcher==='function'?{}:headersOrFetcher;
   const agents=[extra['user-agent'],'clash-verge/v2.4.5','Clash.Meta','clash'].filter((v,i,a):v is string=>Boolean(v)&&a.indexOf(v)===i);
   let u=validateURL(value);const origin=u.origin,deadline=Date.now()+12000;
   for(let count=0;count<=3;count++){
-    const dnsKey=u.hostname.toLowerCase();
-    if(!validatedHosts.has(dnsKey)){await publicDNS(u.hostname,fetcher);validatedHosts.add(dnsKey);}
+    // Cloudflare's fetch runtime rejects private/special destinations after DNS
+    // resolution. URL literals are also rejected above before any subrequest.
     let res:Response|undefined;
     for(const agent of agents){
       const time=deadline-Date.now();requireValue(time>0,'UPSTREAM_TIMEOUT');
