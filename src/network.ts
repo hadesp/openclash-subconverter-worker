@@ -43,13 +43,19 @@ export async function publicDNS(host:string,fetcher:typeof fetch=globalThis.fetc
 export async function retrieve(value:string,headersOrFetcher:Record<string,string>|typeof fetch={},testFetcher?:typeof fetch):Promise<string> {
   const fetcher=typeof headersOrFetcher==='function'?headersOrFetcher:(testFetcher||globalThis.fetch.bind(globalThis));
   const extra=typeof headersOrFetcher==='function'?{}:headersOrFetcher;
+  const agents=[extra['user-agent'],'clash-verge/v2.4.5','Clash.Meta','clash'].filter((v,i,a):v is string=>Boolean(v)&&a.indexOf(v)===i);
   let u=validateURL(value);const origin=u.origin,deadline=Date.now()+12000;
   for(let count=0;count<=3;count++){
     await publicDNS(u.hostname,fetcher);
-    const time=deadline-Date.now();requireValue(time>0,'UPSTREAM_TIMEOUT');
-    let res:Response;
-    try {res=await fetcher(u.href,{method:'GET',redirect:'manual',cache:'no-store',signal:AbortSignal.timeout(time),headers:{'user-agent':'Clash.Meta/OpenClash-private-converter','accept':'application/yaml,text/plain,application/octet-stream','cache-control':'no-store',...(u.origin===origin?extra:{})}});}
-    catch{throw new ConversionError('UPSTREAM_UNAVAILABLE',502);}
+    let res:Response|undefined;
+    for(const agent of agents){
+      const time=deadline-Date.now();requireValue(time>0,'UPSTREAM_TIMEOUT');
+      try {res=await fetcher(u.href,{method:'GET',redirect:'manual',cache:'no-store',signal:AbortSignal.timeout(time),headers:{'accept':'application/yaml,text/plain,application/octet-stream','cache-control':'no-store',...(u.origin===origin?extra:{}),'user-agent':agent}});}
+      catch{continue;}
+      if(res.ok||[301,302,303,307,308].includes(res.status))break;
+      await res.body?.cancel();res=undefined;
+    }
+    if(!res)throw new ConversionError('UPSTREAM_BAD_STATUS',502);
     if([301,302,303,307,308].includes(res.status)){
       const location=res.headers.get('location');await res.body?.cancel();
       requireValue(location && count<3,'TOO_MANY_REDIRECTS');
