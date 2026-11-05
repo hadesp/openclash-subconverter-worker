@@ -43,13 +43,12 @@ export async function publicDNS(host:string,fetcher:typeof fetch=globalThis.fetc
 export async function retrieve(value:string,headersOrFetcher:Record<string,string>|typeof fetch={},testFetcher?:typeof fetch):Promise<string> {
   const fetcher=typeof headersOrFetcher==='function'?headersOrFetcher:(testFetcher||globalThis.fetch.bind(globalThis));
   const extra=typeof headersOrFetcher==='function'?{}:headersOrFetcher;
-  const safeUserAgent=extra['user-agent'];
   let u=validateURL(value);const origin=u.origin,deadline=Date.now()+12000;
   for(let count=0;count<=3;count++){
     await publicDNS(u.hostname,fetcher);
     const time=deadline-Date.now();requireValue(time>0,'UPSTREAM_TIMEOUT');
     let res:Response;
-    try {res=await fetcher(u.href,{method:'GET',redirect:'manual',cache:'no-store',signal:AbortSignal.timeout(time),headers:{'user-agent':safeUserAgent||'Clash.Meta/OpenClash-private-converter','accept':'application/yaml,text/plain,application/octet-stream','cache-control':'no-store',...(u.origin===origin?extra:{})}});}
+    try {res=await fetcher(u.href,{method:'GET',redirect:'manual',cache:'no-store',signal:AbortSignal.timeout(time),headers:{'user-agent':'Clash.Meta/OpenClash-private-converter','accept':'application/yaml,text/plain,application/octet-stream','cache-control':'no-store',...(u.origin===origin?extra:{})}});}
     catch{throw new ConversionError('UPSTREAM_UNAVAILABLE',502);}
     if([301,302,303,307,308].includes(res.status)){
       const location=res.headers.get('location');await res.body?.cancel();
