@@ -38,8 +38,15 @@ export default {
       requireValue(!q.get('rule_provider')||q.get('rule_provider')==='true','INLINE_RULE_EXPANSION_UNSUPPORTED');
       const sources=(q.get('url')||'').split('|');requireValue(sources.length>0&&sources.length<=32&&sources.every(Boolean),'INVALID_SOURCE_COUNT');
       // Sequential download bounds concurrent memory/subrequest use; no response or subscription caching.
-      const nodes=[],sourceHeaders={'user-agent':clientUserAgent(request)};
-      for(const source of sources){stage='SOURCE_DOWNLOAD';const content=await retrieve(source,sourceHeaders);stage='SOURCE_PARSE';nodes.push(...await loadSubscription(content));}
+      const nodes=[],sourceAgents=[clientUserAgent(request),'clash-verge/v2.4.5','Clash.Meta','clash'].filter((v,i,a)=>a.indexOf(v)===i);
+      for(const source of sources){
+        let parsed=false,lastError:unknown;
+        for(const agent of sourceAgents){
+          try {stage='SOURCE_DOWNLOAD';const content=await retrieve(source,{'user-agent':agent});stage='SOURCE_PARSE';nodes.push(...await loadSubscription(content));parsed=true;break;}
+          catch(e){lastError=e;}
+        }
+        if(!parsed)throw lastError;
+      }
       requireValue(nodes.length<=2000,'TOO_MANY_NODES');
       stage='TEMPLATE_DOWNLOAD';const ini=await retrieve(TEMPLATE);stage='TEMPLATE_PARSE';const template=parseINI(ini);
       stage='NODE_TRANSFORM';
