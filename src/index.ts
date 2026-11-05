@@ -36,7 +36,7 @@ export default {
       requireValue(q.get('config')===TEMPLATE,'TEMPLATE_NOT_ALLOWED');
       requireValue(!q.get('tls13')||q.get('tls13')==='false','TLS13_OVERRIDE_UNSUPPORTED');
       requireValue(!q.get('rule_provider')||q.get('rule_provider')==='true','INLINE_RULE_EXPANSION_UNSUPPORTED');
-      const sources=(q.get('url')||'').split('|');requireValue(sources.length>0&&sources.length<=8&&sources.every(Boolean),'INVALID_SOURCE_COUNT');
+      const sources=(q.get('url')||'').split('|');requireValue(sources.length>0&&sources.length<=32&&sources.every(Boolean),'INVALID_SOURCE_COUNT');
       // Sequential download bounds concurrent memory/subrequest use; no response or subscription caching.
       const nodes=[],sourceHeaders={'user-agent':clientUserAgent(request)};
       for(const source of sources){stage='SOURCE_DOWNLOAD';const content=await retrieve(source,sourceHeaders);stage='SOURCE_PARSE';nodes.push(...await loadSubscription(content));}
